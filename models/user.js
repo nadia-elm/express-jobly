@@ -42,6 +42,7 @@ class User {
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
         delete user.password;
+        user.isAdmin = user.is_admin === true
         return user;
       }
     }
